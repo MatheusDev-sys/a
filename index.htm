@@ -51,7 +51,7 @@
         }
         
         /* Estilos para elementos desabilitados */
-        .disabled-element, button:disabled {
+        .disabled-element, button:disabled, input[type="checkbox"]:disabled + div {
             opacity: 0.5;
             cursor: not-allowed;
             pointer-events: none;
@@ -83,7 +83,7 @@
             fill: #3b82f6;
         }
         .flatpickr-weekday {
-            color: #9ca3af; /* CORRIGIDO: Cor dos dias da semana */
+            color: #9ca3af;
             font-weight: bold;
         }
         .flatpickr-day {
@@ -147,7 +147,7 @@
         <div id="login-screen" class="z-10 p-8 md:p-12 rounded-3xl shadow-2xl max-w-sm w-full mx-4 transform transition-all duration-500 bg-gray-800 bg-opacity-80 backdrop-blur-md dark:bg-gray-200 dark:bg-opacity-80">
             <div class="text-center mb-6">
                 <div class="flex items-center justify-center space-x-4 mb-4">
-                    <svg class="text-blue-500 w-16 h-16 water-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.32 0z"/></svg>
+                    <svg class="text-blue-500 w-16 h-16 water-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.32 0z"/></svg>
                     <h1 class="text-3xl font-extrabold text-white dark:text-gray-800">Automação Predial</h1>
                 </div>
                 <p class="text-sm font-medium text-gray-400 dark:text-gray-600">Sistema de Gerenciamento de Água</p>
@@ -314,7 +314,7 @@
                             </div>
                         </div>
 
-                        <div id="maintenance-mode-card" class="p-6 rounded-2xl shadow-lg transition-all duration-300 transform hover:scale-105 bg-gray-700 dark:bg-gray-300">
+                        <div id="maintenance-mode-card" class="p-6 rounded-2xl shadow-lg transition-all duration-300 transform hover:scale-[1.01] bg-gray-700 dark:bg-gray-300">
                             <div class="flex items-center justify-between">
                                 <div>
                                     <div class="flex items-center space-x-2 mb-1">
@@ -591,7 +591,7 @@
             maintenanceToggle.checked = state.maintenanceMode;
             maintenanceControls.classList.toggle('hidden', !state.maintenanceMode);
             
-            [valveStatusCard, toggleRegistro, maintenanceToggle].forEach(el => {
+            [valveStatusCard, toggleRegistro].forEach(el => {
                 el.classList.toggle('disabled-element', state.maintenanceMode);
             });
 
