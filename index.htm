@@ -594,6 +594,8 @@
             [valveStatusCard, toggleRegistro].forEach(el => {
                 el.classList.toggle('disabled-element', state.maintenanceMode);
             });
+            
+            maintenanceToggle.disabled = state.maintenanceMode;
 
             renderUsageStats();
             renderLogs();
